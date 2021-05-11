@@ -34,6 +34,9 @@ namespace Friendlies.Attacks
                 gameObject.name = gameObject.name.TrimCloneTag();
             }
 
+            Transform transform = clone.transform;
+            transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+
             ZSyncTransform zSync = clone.GetComponent<ZSyncTransform>();
             zSync = prefab.GetComponent<ZSyncTransform>();
             ZNetView zNet = clone.GetComponent<ZNetView>();

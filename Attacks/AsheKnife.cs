@@ -18,6 +18,7 @@ namespace Friendlies.Attacks
             ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
                 throw new NullReferenceException("No ItemDrop component in prefab: KnifeChitin");
+
             ItemDrop.ItemData.SharedData shared = component.m_itemData.m_shared;
 
             shared.m_name = "Ashe Knife";
