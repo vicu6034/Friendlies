@@ -15,12 +15,12 @@ namespace Friendlies.Attacks
         {
             //Increase scale of bows
 
-            //bool alreadyExisted = false;
-            //GameObject gameObject = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheKnife", regOdb: true);
-            //if (alreadyExisted)
-            //    return gameObject;
-            GameObject gameObject = RRRLateLoadPrefabs.Clone(weaponName, "Ashe_Bow", true, true);
-            ItemDrop component = gameObject.GetComponent<ItemDrop>();
+            bool alreadyExisted = false;
+            GameObject clone = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheBow", regOdb: true);
+            if (alreadyExisted)
+                return clone;
+            
+            ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
                 throw new NullReferenceException("No ItemDrop component in prefab: " + weaponName);
             ItemDrop.ItemData.SharedData shared = component.m_itemData.m_shared;
@@ -45,7 +45,7 @@ namespace Friendlies.Attacks
             shared.m_attack.m_projectiles = 3;
             shared.m_attack.m_attackProjectile = ZNetScene.instance.GetPrefab(projectileName);
 
-            return gameObject;
+            return clone;
         }
     }
  }
