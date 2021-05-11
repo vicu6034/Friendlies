@@ -12,6 +12,10 @@ Planned Features:
 - Fully custom-made NPC-AI to be used with MobAILib
 - More companions
 
+Known Issues:
+- Will say prefabs are unable to be found when initially loading game, does not effect anything. All RRR prefabs are loaded when the world loads.
+- Combat Overhaul makes some errors, likely because the weapons arent properly set to an owner. Only side effect is combat overhaul not applying to custom items (which we don't want anyway).
+
 Contributors:
 Shadow84 (SonOfMusk)
 Grisch (PlasticRat)
