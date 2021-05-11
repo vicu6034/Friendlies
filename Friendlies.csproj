@@ -98,6 +98,8 @@
     <Compile Include="Mobs\Ashe.cs" />
     <Compile Include="Mobs\Dwarf.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NPCai\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
