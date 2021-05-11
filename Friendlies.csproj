@@ -95,6 +95,8 @@
     <Compile Include="Attacks\AsheKnife.cs" />
     <Compile Include="Attacks\AxeJump.cs" />
     <Compile Include="Mobs\Groot.cs" />
+	  <Compile Include="Mobs\Ashe.cs" />
+	  <Compile Include="Mobs\Dwarf.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
