@@ -12,6 +12,8 @@ namespace Friendlies.Attacks
             string weaponName = "KnifeBlackMetal"
             )
         {
+            //Fix showing up as Knife in NPC's hand
+
             //bool alreadyExisted = false;
             //GameObject gameObject = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheKnife", regOdb: true);
             //if (alreadyExisted)
