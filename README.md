@@ -16,5 +16,8 @@ Contributors:
 Shadow84 (SonOfMusk)
 Grisch (PlasticRat)
 
+Dependencies:
+RRR Core
+
 Special thanks to:
 Neurodr0me - none of this would be possible wihtout his Core mod
