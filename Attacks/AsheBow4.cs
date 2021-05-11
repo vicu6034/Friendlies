@@ -3,7 +3,7 @@ using RRRCore;
 using UnityEngine;
 using BepInEx;
 
-namespace GrootMod
+namespace Friendlies.Attacks
 {
     public static class AsheBow4
     {
