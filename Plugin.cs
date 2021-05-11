@@ -7,15 +7,15 @@ using Friendlies.Mobs;
 
 namespace Friendlies
 {
-    [BepInPlugin("som.Groot", "Groot", "0.0.9")]
+    [BepInPlugin("som.Friendlies", "Friendlies", "0.0.1")]
     [BepInDependency(RRRPluginGuids.RRRCore)]
     //[BepInDependency(RRRPluginGuids.RRRSpawnVariety, BepInDependency.DependencyFlags.SoftDependency)]
 
     public class Plugin : BaseUnityPlugin
     {
-        private const string GUID = "som.Groot";
-        private const string NAME = "Groot";
-        private const string VERSION = "0.0.9";
+        private const string GUID = "som.Friendlies";
+        private const string NAME = "Friendlies";
+        private const string VERSION = "0.0.1";
         internal static ManualLogSource log;
 
         private void Awake()
