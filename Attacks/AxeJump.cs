@@ -14,11 +14,11 @@ namespace Friendlies.Attacks
         {
             //Fix showing up as Knife in NPC's hand
 
-            //bool alreadyExisted = false;
-            //GameObject gameObject = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheKnife", regOdb: true);
-            //if (alreadyExisted)
-            //    return gameObject;
-            GameObject clone = RRRLateLoadPrefabs.Clone(weaponName, "AxeJump", true, true);
+            bool alreadyExisted = false;
+            GameObject clone = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AxeJump", regOdb: true);
+            if (alreadyExisted)
+                return clone;
+            
             ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
                 throw new NullReferenceException("No ItemDrop component in prefab: " + weaponName);

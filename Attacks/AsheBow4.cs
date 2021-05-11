@@ -13,12 +13,12 @@ namespace Friendlies.Attacks
             string projectileName = "bow_projectile_frost"
             )
         {
-            //bool alreadyExisted = false;
-            //GameObject gameObject = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheKnife", regOdb: true);
-            //if (alreadyExisted)
-            //    return gameObject;
-            GameObject gameObject = RRRLateLoadPrefabs.Clone(weaponName, "Ashe_Bow4", true, true);
-            ItemDrop component = gameObject.GetComponent<ItemDrop>();
+            bool alreadyExisted = false;
+            GameObject clone = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheBow4", regOdb: true);
+            if (alreadyExisted)
+                return clone;
+            
+            ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
                 throw new NullReferenceException("No ItemDrop component in prefab: " + weaponName);
             ItemDrop.ItemData.SharedData shared = component.m_itemData.m_shared;
@@ -63,7 +63,7 @@ namespace Friendlies.Attacks
             Transform transform = ulty.transform;
             transform.localScale = new Vector3(3.5f, 3.5f, 2f);
             
-            return gameObject;
+            return clone;
         }
     }
 }
