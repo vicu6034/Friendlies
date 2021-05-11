@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\Desktop\VSOut\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -95,8 +95,8 @@
     <Compile Include="Attacks\AsheKnife.cs" />
     <Compile Include="Attacks\AxeJump.cs" />
     <Compile Include="Mobs\Groot.cs" />
-	<Compile Include="Mobs\Ashe.cs" />
-	<Compile Include="Mobs\Dwarf.cs" />
+    <Compile Include="Mobs\Ashe.cs" />
+    <Compile Include="Mobs\Dwarf.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
