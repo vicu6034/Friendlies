@@ -43,6 +43,9 @@
     <Reference Include="BepInEx">
       <HintPath>Libs\BepInEx.dll</HintPath>
     </Reference>
+    <Reference Include="fastJSON">
+      <HintPath>Libs\fastJSON.dll</HintPath>
+    </Reference>
     <Reference Include="MobAILib">
       <HintPath>Libs\MobAILib.dll</HintPath>
     </Reference>
@@ -51,6 +54,9 @@
     </Reference>
     <Reference Include="RRRNpcs_0.2.2">
       <HintPath>Libs\RRRNpcs_0.2.2.dll</HintPath>
+    </Reference>
+    <Reference Include="stateless">
+      <HintPath>Libs\stateless.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,6 +81,9 @@
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>Libs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>Libs\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>Libs\UnityEngine.ParticleSystemModule.dll</HintPath>
@@ -106,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attacks\Fireball.cs" />
+    <Compile Include="NPCai\grootConfig.cs" />
+    <Compile Include="NPCai\Mobconfig.cs" />
+    <Compile Include="NPCai\MobConfigManager.cs" />
+    <Compile Include="NPCai\npcConfig.cs" />
+    <Compile Include="NPCai\testconfig.cs" />
+    <Compile Include="NPCai\testai.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="MobNames.cs" />
     <Compile Include="Attacks\AsheBow.cs" />
@@ -118,8 +133,6 @@
     <Compile Include="Mobs\Ashe.cs" />
     <Compile Include="Mobs\Dwarf.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NPCai\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
