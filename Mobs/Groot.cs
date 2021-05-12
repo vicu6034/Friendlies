@@ -1,10 +1,7 @@
 ﻿//Groot
 //v.05
-using System;
 using RRRCore;
-using RRRCore.prefabs;
 using UnityEngine;
-using RagnarsRokare.MobAI;
 
 namespace Friendlies.Mobs
 {
@@ -57,12 +54,14 @@ namespace Friendlies.Mobs
             monsterAI.m_deathMessage = "Groot sad";
             monsterAI.m_enableHuntPlayer = false;
 
+            /*
             Tameable tameable = (Tameable)clone.AddComponent<Tameable>();
             GameObject wolfObject = (GameObject)RRRLateLoadPrefabs.Clone("Wolf", "wolfClone", true, true);
             Tameable wolfTame = (Tameable)wolfObject.GetComponent<Tameable>();
             tameable.m_fedDuration = wolfTame.m_fedDuration;
             tameable.m_tamingTime = wolfTame.m_tamingTime;
             tameable.m_commandable = true;
+            */
 
             FootStep footStep = (FootStep)clone.GetComponent<FootStep>();
             GameObject greyObject = (GameObject)RRRLateLoadPrefabs.Clone("Greydwarf_Elite", "grayClone", true, true);

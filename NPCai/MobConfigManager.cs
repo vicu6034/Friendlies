@@ -10,7 +10,7 @@ namespace Friendlies.NPCai
         public static bool IsControllableMob(string mobType)
         {
             string prefabName = Common.GetPrefabName(mobType);
-            return prefabName == "RRRN_Tester" || prefabName == "Groot";
+            return prefabName == "Testes" || prefabName == "Groot";
         }
 
         public static MobConfig GetMobConfig(string mobType)
@@ -42,11 +42,11 @@ namespace Friendlies.NPCai
             }
             return new MobConfig()
             {
-                PostTameConsumables = GrootConfig.PostTameConsumables.Select<string, ItemDrop>((Func<string, ItemDrop>)(i => ObjectDB.instance.GetAllItems(ItemDrop.ItemData.ItemType.Material, i).FirstOrDefault<ItemDrop>())),
-                PostTameFeedDuration = (float)GrootConfig.PostTameFeedDuration.Value,
-                PreTameConsumables = GrootConfig.PreTameConsumables.Select<string, ItemDrop>((Func<string, ItemDrop>)(i => ObjectDB.instance.GetAllItems(ItemDrop.ItemData.ItemType.Material, i).FirstOrDefault<ItemDrop>())),
-                PreTameFeedDuration = (float)GrootConfig.PreTameFeedDuration.Value,
-                TamingTime = (float)GrootConfig.TamingTime.Value,
+                PostTameConsumables = NpcConfig.PostTameConsumables.Select<string, ItemDrop>((Func<string, ItemDrop>)(i => ObjectDB.instance.GetAllItems(ItemDrop.ItemData.ItemType.Material, i).FirstOrDefault<ItemDrop>())),
+                PostTameFeedDuration = (float)NpcConfig.PostTameFeedDuration.Value,
+                PreTameConsumables = NpcConfig.PreTameConsumables.Select<string, ItemDrop>((Func<string, ItemDrop>)(i => ObjectDB.instance.GetAllItems(ItemDrop.ItemData.ItemType.Material, i).FirstOrDefault<ItemDrop>())),
+                PreTameFeedDuration = (float)NpcConfig.PreTameFeedDuration.Value,
+                TamingTime = (float)NpcConfig.TamingTime.Value,
                 AIType = "Test",
                 AIConfig = JsonUtility.ToJson(new testConfig()
                 {

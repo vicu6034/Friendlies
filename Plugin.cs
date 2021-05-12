@@ -30,10 +30,13 @@ namespace Friendlies
 
         private void Awake()
         {
-            NpcConfig.Init(this.Config);
             Plugin.log = this.Logger;
-            Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
             RRRLateLoadPrefabs.LateLoadPrefabs += LateLoadPrefabs;
+            /*
+            NpcConfig.Init(this.Config);
+            GrootConfig.Init(this.Config);
+            Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
+            */
         }
         
         private void LateLoadPrefabs()
@@ -133,7 +136,7 @@ namespace Friendlies
                 {
                     character = MobManager.AliveMobs[uniqueId].Character;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return;
                 }

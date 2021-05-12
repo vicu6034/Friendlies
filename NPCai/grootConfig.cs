@@ -21,7 +21,7 @@ namespace Friendlies.NPCai
 
         public static void Init(ConfigFile Config)
         {
-            GrootConfig.BrutePrefabName = Config.Bind<string>("General", "Groot_PrefabName", "Greydwarf_Elite", "The prefab to use the Groot ai with (repair structures)");
+            GrootConfig.BrutePrefabName = Config.Bind<string>("General", "Groot_PrefabName", "Groot", "The prefab to use the Groot ai with (repair structures)");
             GrootConfig.TamingItemList = Config.Bind<string>("General", "Groot_TamingItemList", "Dandelion", "Comma separated list if items used to tame Groot");
             GrootConfig.PreTameFeedDuration = Config.Bind<int>("General", "Groot_PreTameFeedDuration", 100, "Time before getting hungry after consuming one item during taming");
             GrootConfig.PostTameFeedDuration = Config.Bind<int>("General", "Groot_PostTameFeedDuration", 1000, "Time before getting hungry after consuming one item when tame");

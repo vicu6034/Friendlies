@@ -28,7 +28,7 @@ namespace RagnarsRokare.MobAI
         public TestAI(MonsterAI instance, testConfig config)
           : base((BaseAI)instance, "Idle")
         {
-            Debug.Log((object)"Example Config");
+            Debug.Log((object)"Test Config");
             this.m_config = config;
             this.ConfigureStateMachine();
         }
