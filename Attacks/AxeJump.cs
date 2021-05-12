@@ -8,29 +8,36 @@ namespace Friendlies.Attacks
     public static class AxeJump
     {
         public static GameObject Get(
-            string ownerName = "RRRN_Dwarf",
-            string weaponName = "KnifeBlackMetal"
+            string ownerName,
+            string weaponName
             )
-        {
-            //bool alreadyExisted = false;
-            //GameObject gameObject = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheKnife", regOdb: true);
-            //if (alreadyExisted)
-            //    return gameObject;
-            GameObject clone = RRRLateLoadPrefabs.Clone(weaponName, "AxeJump", true, true);
+        {   
+            //Fix showing up as Knife in NPC's hand
+
+            bool alreadyExisted = false;
+            GameObject clone = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AxeJump", regOdb: true);
+            if (alreadyExisted)
+                return clone;
+            
             ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
                 throw new NullReferenceException("No ItemDrop component in prefab: " + weaponName);
             
             for (int index = 0; index < clone.transform.childCount; ++index)
             {
-                GameObject.Destroy(clone.transform.GetChild(index).gameObject);
+                UnityEngine.Object.Destroy(clone.transform.GetChild(index).gameObject);
             }
-            GameObject prefab = ZNetScene.instance.GetPrefab("AxeBronze");
+            GameObject prefab = ZNetScene.instance.GetPrefab("AxeBlackMetal");
             for (int index = 0; index < prefab.transform.childCount; ++index)
             {
-                GameObject gameObject = GameObject.Instantiate<GameObject>(prefab.transform.GetChild(index).gameObject, clone.transform);
+                UnityEngine.Object gameObject = UnityEngine.Object.Instantiate<GameObject>(prefab.transform.GetChild(index).gameObject, clone.transform);
                 gameObject.name = gameObject.name.TrimCloneTag();
             }
+            
+
+            /*
+            Transform transform = clone.transform;
+            transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
 
             ZSyncTransform zSync = clone.GetComponent<ZSyncTransform>();
             zSync = prefab.GetComponent<ZSyncTransform>();
@@ -38,7 +45,7 @@ namespace Friendlies.Attacks
             zNet = prefab.GetComponent<ZNetView>();
             Rigidbody rigidbody = clone.GetComponent<Rigidbody>();
             rigidbody = prefab.GetComponent<Rigidbody>();
-
+            */
             ItemDrop.ItemData.SharedData shared = component.m_itemData.m_shared;
 
             shared.m_name = "Axe Jump";
