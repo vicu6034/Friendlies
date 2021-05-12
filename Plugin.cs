@@ -28,18 +28,21 @@ namespace Friendlies
         {
             if (!Util.IsGameInMainScene())
                 return;
-            LoadWeapons();
-            LoadMobs();
-        }
-
-        private void LoadWeapons()
-        {
             AsheBow.Get();
             AsheBow2.Get();
             AsheBow3.Get();
             AsheBow4.Get();
             AsheKnife.Get();
-            AxeJump.Get();
+            Fireball.Get();
+            AxeJump.Get(MobNames.RRRN_Dwarf.ToString(), "KnifeCopper");
+            Groot.LateLoadGroot(RRRLateLoadPrefabs.Clone(Groot.OriginalName, MobNames.Groot.ToString(), true, false));
+            //LoadWeapons();
+            //LoadMobs();
+        }
+        /*
+        private void LoadWeapons()
+        {
+            
         }
 
         private void LoadMobs()
@@ -48,6 +51,7 @@ namespace Friendlies
             //Ashe.LateLoadAshe(RRRLateLoadPrefabs.Clone(Ashe.OriginalName, MobNames.Ashe.ToString(), true, false));
             //Dwarf.LateLoadDwarf(RRRLateLoadPrefabs.Clone(Dwarf.OriginalName, MobNames.Dwarf.ToString(), true, false));
         }
+        */
     }
 }
 
