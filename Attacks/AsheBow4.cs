@@ -29,7 +29,7 @@ namespace Friendlies.Attacks
             shared.m_name = "Ashe Bow";
             shared.m_description = "Ashe's Mighty Ultimate!";
             shared.m_useDurability = false;
-            //shared.m_ammoType = "";
+            shared.m_ammoType = "";
             shared.m_attackForce = 2f;
            
             shared.m_damages.m_frost = 60f;
