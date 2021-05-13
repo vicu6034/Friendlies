@@ -1,0 +1,177 @@
+{
+   "sOriginalPrefabName" : "RRR_NPC",
+   "sNewPrefabName" : "Necromancer",
+  "Category_Appearance": {
+    "vScale": {
+      "fX": 0.95,
+      "fY": 1.13,
+      "fZ": 0.96
+    },
+    "cTintColor": {
+      "fRed": 0.3,
+      "fGreen": 0.3,
+      "fBlue": 0.3
+    },
+
+    "cTintItems": {
+      "fRed": 0,
+      "fGreen": 0,
+      "fBlue": 0
+    },
+    "cBodySmoke": {
+      "fRed": 0.3,
+      "fGreen": 0.3,
+      "fBlue": 0.3
+    },
+    "cBodyFlames": null
+  },
+   "Category_Character" : {
+      "sName" : "Necromancer",
+      "sFaction" : "Players",
+      "bBoss" : false,
+      "sBossEvent" : "",
+      "sDefeatSetGlobalKey" : "",
+      "fMoveSpeedMulti" : 0.96,
+      "bToleratesWater" : true,
+      "bToleratesFire" : false,
+      "bToleratesSmoke" : false,
+      "fHealth" : 100,
+      "dDamageTaken" : {
+         "m_blunt" : "Normal",
+         "m_slash" : "Normal",
+         "m_pierce" : "Normal",
+         "m_chop" : "Immune",
+         "m_pickaxe" : "Immune",
+         "m_fire" : "Normal",
+         "m_frost" : "Normal",
+         "m_lightning" : "Normal",
+         "m_poison" : "Normal",
+         "m_spirit" : "Immune"
+      }
+   },
+   "Category_Humanoid" : {
+      "dtAttackDamageOverride" : {
+         "fDamage" : 0,
+         "fBlunt" : 0,
+         "fSlash" : 15,
+         "fPierce" : 0,
+         "fChop" : 0,
+         "fPickaxe" : 0,
+         "fFire" : 0,
+         "fFrost" : 0,
+         "fLightning" : 0,
+         "fPoison" : 0,
+         "fSpirit" : 0
+      },
+      "fAttackDamageTotalOverride" : null,
+      "sAttackProjectileOverride" : null,
+      "aDefaultItems": [
+        "ArmorLeatherLegs",
+        "ArmorLeatherChest",
+        "CapeWolf",
+        "KnifeBlackMetal"
+      ],
+      "aRandomWeapon" : [
+         
+      ],
+      "aRandomArmor" : [
+         
+      ],
+      "aRandomShield" : [
+         
+      ],
+      "aaRandomSets" : [
+         
+      ]
+   },
+   "Category_BaseAI" : {
+      "fViewRange" : 30,
+      "fViewAngle" : 90,
+      "fHearRange" : 9999,
+      "sPathAgentType" : "Humanoid",
+      "fRandomCircleInterval" : 2,
+      "fRandomMoveInterval" : 30,
+      "fRandomMoveRange" : 3,
+      "bAvoidFire" : false,
+      "bAfraidOfFire" : false,
+      "bAvoidWater" : true,
+      "sSpawnMessage" : "I have risen, and my people will rise too",
+      "sDeathMessage" : "Back to the abyss.."
+   },
+   "Category_MonsterAI" : {
+      "fAlertRange" : 20,
+      "bFleeIfHurtWhenTargetCantBeReached" : true,
+      "bFleeIfNotAlerted" : false,
+      "fFleeIfLowHealth" : 0,
+      "bCirculateWhileCharging" : true,
+      "bCirculateWhileChargingFlying" : false,
+      "bEnableHuntPlayer" : false,
+      "bAttackPlayerObjects" : true,
+      "bAttackPlayerObjectsWhenAlerted" : true,
+      "fInterceptTimeMax" : 2,
+      "fInterceptTimeMin" : 0,
+      "fMaxChaseDistance" : 300,
+      "fMinAttackInterval" : 0,
+      "fCircleTargetInterval" : 4,
+      "fCircleTargetDuration" : 2,
+      "fCircleTargetDistance" : 13,
+      "aConsumeItems" : [
+         "CookedMeat"
+      ],
+      "fConsumeRange" : 2,
+      "fConsumeSearchRange" : 5,
+      "fConsumeSearchInterval" : 10,
+      "fConsumeHeal" : 50
+   },
+   "Category_CharacterDrop" : {
+      "bReplaceOriginalDrops" : true,
+      "drDrops" : [
+         
+      ]
+   },
+   "Category_Special" : {
+      "bCanTame" : true,
+      "bAlwaysTame" : true,
+      "bCommandableWhenTame" : true,
+      "bCanProcreateWhenTame" : false,
+      "bFxNoTame" : true,
+      "bSfxNoAlert" : true,
+      "bSfxNoIdle" : true,
+      "bSfxNoHit" : false,
+      "bSfxNoDeath" : false
+   },
+   "Category_NpcOnly" : {
+      "bIsFemale" : false,
+      "bRandomGender" : false,
+      "bNoBeardIfFemale" : false,
+      "aBeardIds" : [
+         "BeardNone"
+      ],
+      "aHairIds" : [
+         "HairNone"
+      ],
+      "cSkinColorMin": {
+        "fRed": 0.43,
+        "fGreen": 0.57,
+        "fBlue": 0.6
+      },
+      "cSkinColorMax": {
+        "fRed": 0.43,
+        "fGreen": 0.57,
+        "fBlue": 0.6
+      },
+      "cHairColorMin" : {
+         "fRed" : 1,
+         "fGreen" : 0.5,
+         "fBlue" : 0.3
+      },
+      "cHairColorMax" : {
+         "fRed" : 1,
+         "fGreen" : 0.9,
+         "fBlue" : 0.7
+      },
+      "fHairValueMin" : 0.1,
+      "fHairValueMax" : 1
+   },
+   "sConfigFormatVersion" : "0.2.0"
+}
