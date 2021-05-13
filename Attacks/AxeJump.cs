@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BepInEx;
+using System;
 using RRRCore;
 using UnityEngine;
-using BepInEx;
 
 namespace Friendlies.Attacks
 {
     public static class AxeJump
     {
         public static GameObject Get(
-            string ownerName,
+            GameObject owner,
             string weaponName
             )
         {   
@@ -34,7 +34,6 @@ namespace Friendlies.Attacks
                 gameObject.name = gameObject.name.TrimCloneTag();
             }
             
-
             /*
             Transform transform = clone.transform;
             transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
@@ -46,7 +45,11 @@ namespace Friendlies.Attacks
             Rigidbody rigidbody = clone.GetComponent<Rigidbody>();
             rigidbody = prefab.GetComponent<Rigidbody>();
             */
+
             ItemDrop.ItemData.SharedData shared = component.m_itemData.m_shared;
+
+            if (!shared.m_attack.m_attackOriginJoint.IsNullOrWhiteSpace() && Utils.FindChild(owner.transform, shared.m_attack.m_attackOriginJoint) == null)
+                shared.m_attack.m_attackOriginJoint = "";
 
             shared.m_name = "Axe Jump";
             shared.m_description = "jump with an axe";

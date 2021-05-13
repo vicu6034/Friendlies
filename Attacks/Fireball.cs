@@ -1,16 +1,15 @@
 ﻿using System;
 using RRRCore;
 using UnityEngine;
-using BepInEx;
 
 namespace Friendlies.Attacks
 {
     public static class Fireball
     {
         public static GameObject Get(
-            string ownerName = "RRRN_Mage",
+            GameObject owner,
             string weaponName = "BowHuntsman",
-            string projectileName = "ArrowFire"
+            string projectileName = "bow_projectile_fire"
             )
         {
             bool alreadyExisted = false;
@@ -31,7 +30,7 @@ namespace Friendlies.Attacks
             shared.m_useDurability = false;
             shared.m_ammoType = "";
             shared.m_attackForce = 2f;
-
+            
             shared.m_damages.m_fire = 30f;
 
             shared.m_aiAttackRange = 50f;
@@ -78,7 +77,8 @@ namespace Friendlies.Attacks
             transformProj.localScale = new Vector3(3.5f, 3.5f, 2f);
             */
 
-            //shared.m_attack.m_attackProjectile = ulty;
+            GameObject ulty = RRRLateLoadPrefabs.Clone(projectileName, "newFire", true, true);
+            shared.m_attack.m_attackProjectile = ulty;
 
             return clone;
         }

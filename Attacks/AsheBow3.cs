@@ -9,7 +9,7 @@ namespace Friendlies.Attacks
     public static class AsheBow3
     {
         public static GameObject Get(
-            string ownerName = "RRRN_Ashe",
+            //string ownerName = "RRRN_Ashe",
             string weaponName = "BowHuntsman",
             string projectileName = "bow_projectile_frost"
             )

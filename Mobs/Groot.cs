@@ -84,7 +84,7 @@ namespace Friendlies.Mobs
             ((EffectList.EffectData)((EffectList)component.m_deathEffects).m_effectPrefabs[1]).m_prefab = (GameObject)clone1;
             
             Groot.DesignAppearance(clone);
-            //Groot.DesignAppearance(clone1);
+  
         }
 
         private static GameObject DesignThornAttack()

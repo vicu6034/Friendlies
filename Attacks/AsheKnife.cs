@@ -7,17 +7,18 @@ namespace Friendlies.Attacks
     public static class AsheKnife
     {
         public static GameObject Get(
-            string ownerName = "RRRN_Ashe"
+            //string ownerName = "RRRN_Ashe",
+            string weapoName = "KnifeChitin"
             )
         {
             bool alreadyExisted = false;
-            GameObject clone = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, "KnifeChitin", "AsheKnife", regOdb: true);
+            GameObject clone = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weapoName, "AsheKnife", regOdb: true);
             if (alreadyExisted)
                 return clone;
             
             ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
-                throw new NullReferenceException("No ItemDrop component in prefab: KnifeChitin");
+                throw new NullReferenceException("No ItemDrop component in prefab: " + weapoName);
 
             ItemDrop.ItemData.SharedData shared = component.m_itemData.m_shared;
 

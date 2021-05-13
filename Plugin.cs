@@ -33,8 +33,8 @@ namespace Friendlies
             AsheBow3.Get();
             AsheBow4.Get();
             AsheKnife.Get();
-            Fireball.Get();
-            AxeJump.Get(MobNames.RRRN_Dwarf.ToString(), "KnifeCopper");
+            Fireball.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone", true, true));
+            AxeJump.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone2", true, true), "KnifeCopper");
             Groot.LateLoadGroot(RRRLateLoadPrefabs.Clone(Groot.OriginalName, MobNames.Groot.ToString(), true, false));
             //LoadWeapons();
             //LoadMobs();
