@@ -1,0 +1,192 @@
+{
+  // Original Name of your export. Do not change.
+  "sOriginalPrefabName": "RRR_NPC",
+  // The new Name of you prefab
+  "sNewPrefabName": "Mage",
+  // Size
+  "Category_Appearance": {
+    "vScale": {
+      // Width
+      "fX": 1,
+      //Height
+      "fY": 1,
+      //Depth
+      "fZ": 1
+    },
+    // Colors in RGB format: Example --- "cTintColor" : {"fRed" : 1.0, "fGreen" : 0.0,"fBlue" : 0.0},
+    //Adds Body tint
+    "cTintColor": null,
+    //Add smoke effect with x tint
+    "cBodySmoke": null,
+    //Adds a flme effect with x tint
+    "cBodyFlames": null
+  },
+  "Category_Character": {
+    //Name
+    "sName": "Mage",
+    // Faction to use can be any one of these:- Players, AnimalsVeg, ForestMonsters, Undead, Demon, MountainMonsters, SeaMonsters, PlainsMonsters, Boss
+    "sFaction": "Players",
+    // Display a Boss Bar
+    "bBoss": false,
+    // Start x event for this boss
+    "sBossEvent": "",
+    // Store a Key to use at a later date
+    "sDefeatSetGlobalKey": "",
+    // Movement Speed
+    "fMoveSpeedMulti": 1.1,
+    // Is immune to water (Sea, Rivers etc) damage
+    "bToleratesWater": true,
+    // Takes damage from campfires
+    "bToleratesFire": false,
+    // Takes damage from smoke
+    "bToleratesSmoke": true,
+    // AMount of Health
+    "fHealth": 175,
+    // Damage Weakness, Resistance and Immunities
+    "dDamageTaken": {
+      "m_blunt": "Resistant",
+      "m_slash": "Resistant",
+      "m_pierce": "Resistant",
+      "m_chop": "Immune",
+      "m_pickaxe": "Immune",
+      "m_fire": "Resistant",
+      "m_frost": "Ignore",
+      "m_lightning": "Resistant",
+      "m_poison": "Resistant",
+      "m_spirit": "Resistant"
+    }
+  },
+  "Category_Humanoid": {
+    // Attack Damage, fists/weapons
+    "dtAttackDamageOverride": null,
+    // Attack Damage all
+    "fAttackDamageTotalOverride": null,
+    // Range Damage
+    "sAttackProjectileOverride": null,
+    // Default Set
+    "aDefaultItems": [
+      "Fireball"
+    ],
+    // Random Weapons
+    "aRandomWeapon": [
+
+    ],
+    // Random Armor
+    "aRandomArmor": [
+
+    ],
+    // Random Shield
+    "aRandomShield": [
+
+    ],
+    // Random Sets
+    "aaRandomSets": [
+
+    ]
+  },
+  "Category_BaseAI": {
+    // How far they see
+    "fViewRange": 35,
+    // Angle they see at
+    "fViewAngle": 120,
+    // How far they hear Noise
+    "fHearRange": 9999,
+    // Pathing
+    "sPathAgentType": "Humanoid",
+    // How offten they amble round
+    "fRandomCircleInterval": 2,
+    // How offten they go for a wander
+    "fRandomMoveInterval": 30,
+    // How far they roam
+    "fRandomMoveRange": 3,
+    // Avoids CampfireszTourches (Like Greydwarfs do now)
+    "bAvoidFire": false,
+    // Makes a mob scared of player held torches
+    "bAfraidOfFire": false,
+    // Can enter the sea or river
+    "bAvoidWater": true,
+    // Spawn Message
+    "sSpawnMessage": "Know This! I am Ashe! I am the Bow!.",
+    // Death Message
+    "sDeathMessage": "The cold does not forgive..."
+  },
+  "Category_MonsterAI": {
+    "fAlertRange": 30,
+    "bFleeIfHurtWhenTargetCantBeReached": false,
+    "bFleeIfNotAlerted": false,
+    "fFleeIfLowHealth": 0,
+    "bCirculateWhileCharging": true,
+    "bCirculateWhileChargingFlying": false,
+    "bEnableHuntPlayer": false,
+    "bAttackPlayerObjects": true,
+    "bAttackPlayerObjectsWhenAlerted": true,
+    "fInterceptTimeMax": 2,
+    "fInterceptTimeMin": 0,
+    "fMaxChaseDistance": 250,
+    "fMinAttackInterval": 0,
+    "fCircleTargetInterval": 4,
+    "fCircleTargetDuration": 3,
+    "fCircleTargetDistance": 25,
+    "aConsumeItems": [
+      "CookedMeat"
+    ],
+    "fConsumeRange": 2,
+    "fConsumeSearchRange": 5,
+    "fConsumeSearchInterval": 10,
+    "fConsumeHeal": 100
+  },
+  "Category_CharacterDrop": {
+    "bReplaceOriginalDrops": true,
+    "drDrops": [
+
+    ]
+  },
+  // Taming
+  "Category_Special": {
+    "bCanTame": true,
+    "bAlwaysTame": true,
+    "bCommandableWhenTame": true,
+    "bCanProcreateWhenTame": false,
+    "bSfxNoAlert": true,
+    "bSfxNoIdle": true,
+    "bSfxNoHit": false,
+    "bSfxNoDeath": false,
+    "bFxNoTame": true
+  },
+  // How your NPC is goign to look.
+  "Category_NpcOnly": {
+    // Male or Female
+    "bIsFemale": true,
+    // Random
+    "bRandomGender": false,
+    "aBeardIds": [
+      "BeardNone"
+    ],
+    "aHairIds": [
+      "Hair3"
+    ],
+    "cSkinColorMin": {
+      "fRed": 1,
+      "fGreen": 0.88,
+      "fBlue": 0.77
+    },
+    "cSkinColorMax": {
+      "fRed": 1,
+      "fGreen": 0.88,
+      "fBlue": 0.77
+    },
+    "cHairColorMin": {
+      "fRed": 1,
+      "fGreen": 0.98,
+      "fBlue": 0.98
+    },
+    "cHairColorMax": {
+      "fRed": 1,
+      "fGreen": 0.98,
+      "fBlue": 0.98
+    },
+    "fHairValueMin": 0.9,
+    "fHairValueMax": 0.9
+  },
+  "sConfigFormatVersion": "0.2.0"
+}
