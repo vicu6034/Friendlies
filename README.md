@@ -5,11 +5,12 @@ Current Features:
 - An Axe you can jump and lunge with (the knife secondary animation)
 - Special Groot companion with custom attacks
 - Bonus NPC cfg to make effective use of new Bow attacks
+- Necromancer and Dvorah that spawn custom Skeletons and Deathquitos
 
 Planned Features:
 - Many, many more attacks that are not typically posisible through RRR configs
   - Mostly for NPCs, but some will work for the player if you want to mess with them
-- Fully custom-made NPC-AI to be used with MobAILib
+- Fully custom-made NPC-AI to be used with MobAILib (branched into seperate .dll)
 - More companions
 
 Known Issues:
