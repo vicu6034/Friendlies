@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using RRRCore;
 using UnityEngine;
-using RRRNpcs;
 
 namespace Friendlies
 {

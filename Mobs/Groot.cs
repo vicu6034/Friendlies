@@ -4,7 +4,6 @@ using System;
 using RRRCore;
 using RRRCore.prefabs;
 using UnityEngine;
-using RagnarsRokare.MobAI;
 
 namespace Friendlies.Mobs
 {

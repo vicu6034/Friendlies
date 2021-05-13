@@ -43,14 +43,8 @@
     <Reference Include="BepInEx">
       <HintPath>Libs\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="MobAILib">
-      <HintPath>Libs\MobAILib.dll</HintPath>
-    </Reference>
     <Reference Include="RRRCore">
       <HintPath>Libs\RRRCore.dll</HintPath>
-    </Reference>
-    <Reference Include="RRRNpcs_0.2.2">
-      <HintPath>Libs\RRRNpcs_0.2.2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -99,9 +93,6 @@
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
       <HintPath>Libs\UnityEngine.VFXModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VideoModule">
-      <HintPath>Libs\UnityEngine.VideoModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
