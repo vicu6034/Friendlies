@@ -8,7 +8,7 @@ namespace Friendlies.Attacks
     public static class AsheBow
     {
         public static GameObject Get(
-            string ownerName = "RRRN_Ashe",
+            //string ownerName = "RRRN_Ashe",
             string weaponName = "BowHuntsman",
             string projectileName = "bow_projectile_frost"
             )
@@ -19,7 +19,10 @@ namespace Friendlies.Attacks
             GameObject clone = RRRLateLoadPrefabs.CloneRepeatable(ref alreadyExisted, weaponName, "AsheBow", regOdb: true);
             if (alreadyExisted)
                 return clone;
-            
+
+            Transform transform = clone.transform;
+            transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+
             ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
                 throw new NullReferenceException("No ItemDrop component in prefab: " + weaponName);

@@ -4,6 +4,8 @@
     {
         Groot,
         Ashe,
-        Dwarf
+        Dwarf,
+        MiniSkelly,
+        MiniSquito
     }
 }

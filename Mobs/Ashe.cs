@@ -6,7 +6,7 @@ using RRRCore;
 using UnityEngine;
 using RRRNpcs;
 
-namespace GrootMod
+namespace Friendlies
 {
     internal static class Ashe
     {
@@ -14,19 +14,10 @@ namespace GrootMod
 
         internal static void LateLoadAshe(GameObject clone)
         {
-            /*
-            for (int index = 0; index < clone.transform.childCount; ++index)
-                Object.Destroy((Object)clone.transform.GetChild(index).gameObject);
-            GameObject prefab = ZNetScene.instance.GetPrefab("Player");
-            GameObject eyePos = (GameObject)null;
-            for (int index = 0; index < prefab.transform.childCount; ++index)
-            {
-                GameObject gameObject = Object.Instantiate<GameObject>(prefab.transform.GetChild(index).gameObject, clone.transform);
-                gameObject.name = gameObject.name.TrimCloneTag();
-                if (gameObject.name == "EyePos")
-                    eyePos = gameObject;
-            }
-            */
+            Character component = (Character)clone.GetComponent<Character>();
+            component.m_name = "Ashe";
+            Character character1 = component;
+            character1.m_health = 200;
         }
     }
 }

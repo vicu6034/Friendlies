@@ -32,7 +32,7 @@ namespace Friendlies.Mobs
             character4.m_walkSpeed = (float)(character4.m_walkSpeed * 0.8);
             Character character5 = component;
             character5.m_runSpeed = (float)(character5.m_runSpeed * 0.7);
-
+            
             Rigidbody rigidbody = clone.GetComponent<Rigidbody>();
             rigidbody.mass = 50;
 
@@ -40,7 +40,7 @@ namespace Friendlies.Mobs
             humanoid.m_defaultItems = (GameObject[])new GameObject[2]
             {
             Groot.DesignThornAttack(),
-            Groot.DesignPunch()
+            Groot.DesignPunch(component)
             };
             Character.Faction nFaction = Character.Faction.Players;
             humanoid.m_faction = nFaction;
@@ -48,7 +48,7 @@ namespace Friendlies.Mobs
             humanoid.m_boss = false;
             humanoid.m_bossEvent = null;
             humanoid.m_defeatSetGlobalKey = null;
-
+            
             MonsterAI monsterAI = (MonsterAI)clone.GetComponent<BaseAI>();
             Pathfinding.AgentType npath = Pathfinding.AgentType.HorseSize;
             monsterAI.m_pathAgentType = npath;
@@ -56,14 +56,15 @@ namespace Friendlies.Mobs
             monsterAI.m_spawnMessage = "I am Groot";
             monsterAI.m_deathMessage = "Groot sad";
             monsterAI.m_enableHuntPlayer = false;
-
+            
             Tameable tameable = (Tameable)clone.AddComponent<Tameable>();
             GameObject wolfObject = (GameObject)RRRLateLoadPrefabs.Clone("Wolf", "wolfClone", true, true);
             Tameable wolfTame = (Tameable)wolfObject.GetComponent<Tameable>();
             tameable.m_fedDuration = wolfTame.m_fedDuration;
             tameable.m_tamingTime = wolfTame.m_tamingTime;
             tameable.m_commandable = true;
-
+            tameable.m_tamedEffect = new EffectList();
+            
             FootStep footStep = (FootStep)clone.GetComponent<FootStep>();
             GameObject greyObject = (GameObject)RRRLateLoadPrefabs.Clone("Greydwarf_Elite", "grayClone", true, true);
             FootStep greyStep = (FootStep)greyObject.GetComponent<FootStep>();
@@ -84,7 +85,7 @@ namespace Friendlies.Mobs
             ((EffectList.EffectData)((EffectList)component.m_deathEffects).m_effectPrefabs[1]).m_prefab = (GameObject)clone1;
             
             Groot.DesignAppearance(clone);
-            //Groot.DesignAppearance(clone1);
+  
         }
 
         private static GameObject DesignThornAttack()
@@ -114,7 +115,7 @@ namespace Friendlies.Mobs
             return gameObject;
         }
 
-        private static GameObject DesignPunch()
+        private static GameObject DesignPunch(Character component)
         {
             GameObject gameObject = RRRLateLoadPrefabs.Clone("troll_punch", MobNames.Groot.ToString() + "_punch", true, true);
             ItemDrop.ItemData.SharedData shared = ((ItemDrop.ItemData)((ItemDrop)gameObject.GetComponent<ItemDrop>()).m_itemData).m_shared;
@@ -125,6 +126,7 @@ namespace Friendlies.Mobs
             shared.m_attack.m_attackAnimation = "punch";
             shared.m_aiAttackInterval = 3.0f;
             shared.m_aiAttackRange = 2.5f;
+
             return gameObject;
         }
 
