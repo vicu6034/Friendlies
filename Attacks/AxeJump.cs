@@ -22,7 +22,7 @@ namespace Friendlies.Attacks
             ItemDrop component = clone.GetComponent<ItemDrop>();
             if ((UnityEngine.Object)component == (UnityEngine.Object)null)
                 throw new NullReferenceException("No ItemDrop component in prefab: " + weaponName);
-            
+            /*
             for (int index = 0; index < clone.transform.childCount; ++index)
             {
                 UnityEngine.Object.Destroy(clone.transform.GetChild(index).gameObject);
@@ -33,7 +33,7 @@ namespace Friendlies.Attacks
                 UnityEngine.Object gameObject = UnityEngine.Object.Instantiate<GameObject>(prefab.transform.GetChild(index).gameObject, clone.transform);
                 gameObject.name = gameObject.name.TrimCloneTag();
             }
-            
+            */
             /*
             Transform transform = clone.transform;
             transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
@@ -68,7 +68,7 @@ namespace Friendlies.Attacks
             shared.m_aiAttackRangeMin = 0f;
             shared.m_aiAttackInterval = 4f;
 
-            shared.m_attack = shared.m_secondaryAttack;
+            shared.m_attack.m_attackAnimation = "knife_secondary";
 
             return clone;
         }

@@ -1,10 +1,5 @@
-﻿//Groot
-//v.05
-using System;
-using RRRCore;
-using RRRCore.prefabs;
+﻿using RRRCore;
 using UnityEngine;
-using RagnarsRokare.MobAI;
 
 namespace Friendlies.Mobs
 {
@@ -12,7 +7,7 @@ namespace Friendlies.Mobs
     {
         internal static string OriginalName = "Skeleton";
 
-        private static float MeleeDmgSlash = Balance.Enemy.BasicDamage(3) * 0.25f;
+        private static readonly float MeleeDmgSlash = Balance.Enemy.BasicDamage(3) * 0.18f;
 
         internal static void LateLoadMiniSkelly(GameObject clone)
         {
@@ -72,7 +67,7 @@ namespace Friendlies.Mobs
             GameObject gameObject = RRRLateLoadPrefabs.Clone("skeleton_sword", "skellySword", true, true);
             
             Transform transform = gameObject.transform;
-            transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             
             ItemDrop.ItemData.SharedData shared = ((ItemDrop.ItemData)((ItemDrop)gameObject.GetComponent<ItemDrop>()).m_itemData).m_shared;
             shared.m_attackForce = 5f;
@@ -93,7 +88,7 @@ namespace Friendlies.Mobs
             GameObject gameObject = RRRLateLoadPrefabs.Clone("ShieldWood", "skellyShield", true, true);
             
             Transform transform = gameObject.transform;
-            transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             
             ItemDrop.ItemData.SharedData shared = ((ItemDrop.ItemData)((ItemDrop)gameObject.GetComponent<ItemDrop>()).m_itemData).m_shared;
             shared.m_blockPower = 7;
