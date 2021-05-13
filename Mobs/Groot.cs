@@ -40,7 +40,7 @@ namespace Friendlies.Mobs
             humanoid.m_defaultItems = (GameObject[])new GameObject[2]
             {
             Groot.DesignThornAttack(),
-            Groot.DesignPunch()
+            Groot.DesignPunch(component)
             };
             Character.Faction nFaction = Character.Faction.Players;
             humanoid.m_faction = nFaction;
@@ -114,7 +114,7 @@ namespace Friendlies.Mobs
             return gameObject;
         }
 
-        private static GameObject DesignPunch()
+        private static GameObject DesignPunch(Character component)
         {
             GameObject gameObject = RRRLateLoadPrefabs.Clone("troll_punch", MobNames.Groot.ToString() + "_punch", true, true);
             ItemDrop.ItemData.SharedData shared = ((ItemDrop.ItemData)((ItemDrop)gameObject.GetComponent<ItemDrop>()).m_itemData).m_shared;
@@ -125,6 +125,7 @@ namespace Friendlies.Mobs
             shared.m_attack.m_attackAnimation = "punch";
             shared.m_aiAttackInterval = 3.0f;
             shared.m_aiAttackRange = 2.5f;
+
             return gameObject;
         }
 

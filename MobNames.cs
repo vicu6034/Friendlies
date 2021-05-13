@@ -3,7 +3,9 @@
     public enum MobNames
     {
         Groot,
-        RRRN_Ashe,
-        RRRN_Dwarf
+        Ashe,
+        Dwarf,
+        MiniSkelly,
+        MiniSquito
     }
 }
