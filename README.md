@@ -14,8 +14,13 @@ Planned Features:
 - More companions
 
 Known Issues:
-- Log will say prefabs are unable to be found when initially loading game, does not effect anything. All RRR prefabs are loaded when the world loads.
-- Log will say Combat Overhaul has errors, likely because the weapons arent properly set to an owner. Only side effect is combat overhaul not applying to custom items (which we don't want anyway).
+- CombatOverhaul throws some errors, doesnt look like it effects anything besides not applying its changes to the custom attacks.
+
+TO WORK ON (END OF 5/13):
+- Remove pink and red from Groot
+- Rewrite AxeJump to work for NPCs
+- Make minisquitos smaller and quieter
+- Sorcerer attacks
 
 Contributors:
 Shadow84 (SonOfMusk)
