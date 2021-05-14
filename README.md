@@ -5,7 +5,8 @@ Current Features:
 - An Axe you can jump and lunge with (the knife secondary animation)
 - Special Groot companion with custom attacks
 - Bonus NPC cfg to make effective use of new Bow attacks
-- Necromancer and Dvorah that spawn custom Skeletons and Deathquitos
+- Necromancer and Dvorah NPCs that spawn custom Skeletons and Deathquitos
+- WIP Mage
 
 Planned Features:
 - Many, many more attacks that are not typically posisible through RRR configs
@@ -20,7 +21,7 @@ TO WORK ON (END OF 5/13):
 - Remove pink and red from Groot
 - Rewrite AxeJump to work for NPCs
 - Make minisquitos smaller and quieter
-- Sorcerer attacks
+- Mage attacks
 
 Contributors:
 Shadow84 (SonOfMusk)
