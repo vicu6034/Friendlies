@@ -1,8 +1,6 @@
 ﻿using System;
 using RRRCore;
 using UnityEngine;
-using BepInEx;
-using RRRCore.prefabs._0_2_0;
 
 namespace Friendlies.Attacks
 {

@@ -30,6 +30,16 @@ namespace Friendlies
         {
             if (!Util.IsGameInMainScene())
                 return;
+            LoadWeapons();
+            Groot.LateLoadGroot(RRRLateLoadPrefabs.Clone(Groot.OriginalName, MobNames.Groot.ToString(), true, false));
+            Ashe.LateLoadAshe(RRRLateLoadPrefabs.Clone(Ashe.OriginalName, MobNames.Ashe.ToString(), true, false));
+            MiniSkelly.LateLoadMiniSkelly(RRRLateLoadPrefabs.Clone(MiniSkelly.OriginalName, MobNames.MiniSkelly.ToString(), true, false));
+            MiniSquito.LateLoadMiniSquito(RRRLateLoadPrefabs.Clone(MiniSquito.OriginalName, MobNames.MiniSquito.ToString(), true, false));
+            Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
+        }
+
+        private void LoadWeapons()
+        {
             AsheBow.Get();
             AsheBow2.Get();
             AsheBow3.Get();
@@ -37,11 +47,7 @@ namespace Friendlies
             AsheKnife.Get();
             Fireball.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone", true, true));
             AxeJump.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone2", true, true), "SwordIron");
-            Groot.LateLoadGroot(RRRLateLoadPrefabs.Clone(Groot.OriginalName, MobNames.Groot.ToString(), true, false));
-            Ashe.LateLoadAshe(RRRLateLoadPrefabs.Clone(Ashe.OriginalName, MobNames.Ashe.ToString(), true, false));
-            MiniSkelly.LateLoadMiniSkelly(RRRLateLoadPrefabs.Clone(MiniSkelly.OriginalName, MobNames.MiniSkelly.ToString(), true, false));
-            MiniSquito.LateLoadMiniSquito(RRRLateLoadPrefabs.Clone(MiniSquito.OriginalName, MobNames.MiniSquito.ToString(), true, false));
-            Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
+            FrostMagic.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone3", true, true));
         }
 
         [HarmonyPatch(typeof(Character), "Damage")]

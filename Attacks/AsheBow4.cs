@@ -1,7 +1,6 @@
 ﻿using System;
 using RRRCore;
 using UnityEngine;
-using BepInEx;
 
 namespace Friendlies.Attacks
 {
