@@ -21,7 +21,8 @@ TO WORK ON (END OF 5/13):
 - Remove pink and red from Groot
 - Rewrite AxeJump to work for NPCs
 - Make minisquitos smaller and quieter
-- Mage attacks
+- Fire/Frost attacks for Mage
+- Shield for Necromancer (and maybe Mage)
 
 Contributors:
 Shadow84 (SonOfMusk)
