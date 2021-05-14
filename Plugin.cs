@@ -12,7 +12,6 @@ namespace Friendlies
 {
     [BepInPlugin("som.Friendlies", "Friendlies", "0.0.1")]
     [BepInDependency(RRRPluginGuids.RRRCore)]
-    //[BepInDependency(RRRPluginGuids.RRRSpawnVariety, BepInDependency.DependencyFlags.SoftDependency)]
 
     public class Plugin : BaseUnityPlugin
     {
@@ -37,7 +36,7 @@ namespace Friendlies
             AsheBow4.Get();
             AsheKnife.Get();
             Fireball.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone", true, true));
-            AxeJump.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone2", true, true), "AxeBlackMetal");
+            AxeJump.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone2", true, true), "SwordIron");
             Groot.LateLoadGroot(RRRLateLoadPrefabs.Clone(Groot.OriginalName, MobNames.Groot.ToString(), true, false));
             Ashe.LateLoadAshe(RRRLateLoadPrefabs.Clone(Ashe.OriginalName, MobNames.Ashe.ToString(), true, false));
             MiniSkelly.LateLoadMiniSkelly(RRRLateLoadPrefabs.Clone(MiniSkelly.OriginalName, MobNames.MiniSkelly.ToString(), true, false));
@@ -48,7 +47,7 @@ namespace Friendlies
         [HarmonyPatch(typeof(Character), "Damage")]
         private static class Character_Damaged_Patch
         {
-            private static void Prefix(
+            private static void Postfix(
               ref Character __instance,
               ref ZNetView ___m_nview,
               ref HitData hit)
@@ -75,7 +74,7 @@ namespace Friendlies
                 } else if (name == "Dvorah")
                 {
                     System.Random rand = new System.Random();
-                    var numMobs = rand.Next(2, 3);
+                    var numMobs = rand.Next(1, 3);
                     var prefab = ZNetScene.instance.GetPrefab("MiniSquito");
                     for (var i = 0; i < numMobs; i++)
                     {
@@ -96,7 +95,7 @@ namespace Friendlies
         }
 
         [HarmonyPatch(typeof(Character), "Awake")]
-        private static class CharacterAwakePatch
+        private static class Character_Awake_Patch
         {
             private static void Postfix(
                 ref Character __instance,
