@@ -10,7 +10,7 @@ Current Features:
 Planned Features:
 - Many, many more attacks that are not typically posisible through RRR configs
   - Mostly for NPCs, but some will work for the player if you want to mess with them
-- Fully custom-made NPC-AI to be used with MobAILib (branched into seperate .dll)
+- Fully custom-made NPC-AI to be used with MobAILib (branched into seperate repo)
 - More companions
 
 Known Issues:
