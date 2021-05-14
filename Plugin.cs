@@ -10,14 +10,14 @@ using System.Runtime.CompilerServices;
 
 namespace Friendlies
 {
-    [BepInPlugin("som.Friendlies", "Friendlies", "0.0.1")]
+    [BepInPlugin("som.Friendlies", "Friendlies", "0.0.2")]
     [BepInDependency(RRRPluginGuids.RRRCore)]
 
     public class Plugin : BaseUnityPlugin
     {
         private const string GUID = "som.Friendlies";
         private const string NAME = "Friendlies";
-        private const string VERSION = "0.0.1";
+        private const string VERSION = "0.0.2";
         internal static ManualLogSource log;
 
         private void Awake()
@@ -47,7 +47,8 @@ namespace Friendlies
             AsheKnife.Get();
             Fireball.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone", true, true));
             AxeJump.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone2", true, true), "SwordIron");
-            FrostMagic.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone3", true, true));
+            LightningShock.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone3", true, true));
+            FrostBreath.Get(RRRLateLoadPrefabs.Clone("RRR_NPC", "NPCclone4", true, true));
         }
 
         [HarmonyPatch(typeof(Character), "Damage")]
