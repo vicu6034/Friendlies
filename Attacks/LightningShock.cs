@@ -18,7 +18,7 @@ namespace Friendlies.Attacks
                 return clone;
 
             ItemDrop component = clone.GetComponent<ItemDrop>();
-            if ((UnityEngine.Object)component == (UnityEngine.Object)null)
+            if (component == null)
                 throw new NullReferenceException("No ItemDrop component in prefab: " + weaponName);
             ItemDrop.ItemData.SharedData shared = component.m_itemData.m_shared;
 
