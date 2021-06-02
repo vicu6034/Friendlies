@@ -1,10 +1,8 @@
 ﻿//Groot
 //v.05
-using System;
+using System.Collections.Generic;
 using RRRCore;
-using RRRCore.prefabs;
 using UnityEngine;
-using RagnarsRokare.MobAI;
 
 namespace Friendlies.Mobs
 {
@@ -33,9 +31,7 @@ namespace Friendlies.Mobs
             Character character5 = component;
             character5.m_runSpeed = (float)(character5.m_runSpeed * 0.7);
             
-            Rigidbody rigidbody = clone.GetComponent<Rigidbody>();
-            rigidbody.mass = 50;
-
+            //Humanoid
             Humanoid humanoid = (Humanoid)component;
             humanoid.m_defaultItems = (GameObject[])new GameObject[2]
             {
@@ -48,28 +44,45 @@ namespace Friendlies.Mobs
             humanoid.m_boss = false;
             humanoid.m_bossEvent = null;
             humanoid.m_defeatSetGlobalKey = null;
-            
+            //MonsterAI
             MonsterAI monsterAI = (MonsterAI)clone.GetComponent<BaseAI>();
             Pathfinding.AgentType npath = Pathfinding.AgentType.HorseSize;
             monsterAI.m_pathAgentType = npath;
-            monsterAI.m_viewRange = (int)30;
+            monsterAI.m_viewRange = 25f;
             monsterAI.m_spawnMessage = "I am Groot";
             monsterAI.m_deathMessage = "Groot sad";
             monsterAI.m_enableHuntPlayer = false;
-            
-            Tameable tameable = (Tameable)clone.AddComponent<Tameable>();
-            GameObject wolfObject = (GameObject)RRRLateLoadPrefabs.Clone("Wolf", "wolfClone", true, true);
-            Tameable wolfTame = (Tameable)wolfObject.GetComponent<Tameable>();
+            monsterAI.m_circulateWhileCharging = true;
+            monsterAI.m_circleTargetDistance = 10f;
+            monsterAI.m_circleTargetInterval = 4f;
+            monsterAI.m_circleTargetDuration = 2.5f;
+            monsterAI.m_fleeIfHurtWhenTargetCantBeReached = true;
+            monsterAI.m_alertRange = 20f;
+            monsterAI.m_randomMoveInterval = 10f;
+            monsterAI.m_randomMoveRange = 4f;
+            //Consume
+            monsterAI.m_consumeHeal = 50f;
+            monsterAI.m_consumeRange = 1f;
+            monsterAI.m_consumeSearchInterval = 5f;
+            monsterAI.m_consumeSearchRange = 8f;
+            List<ItemDrop> consumeList = new List<ItemDrop>();
+            ItemDrop consumeDrop = ZNetScene.instance.GetPrefab("CookedMeat").GetComponent<ItemDrop>();
+            consumeList.Add(consumeDrop);
+            monsterAI.m_consumeItems = consumeList;
+            //Tameable
+            Tameable tameable = clone.AddComponent<Tameable>();
+            GameObject wolfObject = RRRLateLoadPrefabs.Clone("Wolf", "wolfClone", true, true);
+            Tameable wolfTame = wolfObject.GetComponent<Tameable>();
             tameable.m_fedDuration = wolfTame.m_fedDuration;
             tameable.m_tamingTime = wolfTame.m_tamingTime;
             tameable.m_commandable = true;
             tameable.m_tamedEffect = new EffectList();
-            
-            FootStep footStep = (FootStep)clone.GetComponent<FootStep>();
-            GameObject greyObject = (GameObject)RRRLateLoadPrefabs.Clone("Greydwarf_Elite", "grayClone", true, true);
-            FootStep greyStep = (FootStep)greyObject.GetComponent<FootStep>();
+            //Footstep
+            FootStep footStep = clone.GetComponent<FootStep>();
+            GameObject greyObject = RRRLateLoadPrefabs.Clone("Greydwarf_Elite", "grayClone", true, true);
+            FootStep greyStep = greyObject.GetComponent<FootStep>();
             footStep.m_effects = greyStep.m_effects;
-
+            //Death drops
             CharacterDrop characterDrop = (CharacterDrop)clone.GetComponent<CharacterDrop>();
             characterDrop.m_drops.Clear();
             CharacterDrop.Drop drop = new CharacterDrop.Drop()
@@ -78,12 +91,17 @@ namespace Friendlies.Mobs
             };
             characterDrop.m_drops.Add(drop);
 
+            //Death effects
             GameObject bruteDeath = RRRLateLoadPrefabs.Clone("sfx_greydwarf_elite_death", "vfx_" + clone.name + "_death", true, false);
             humanoid.m_deathEffects.m_effectPrefabs[0].m_prefab = bruteDeath;
 
             GameObject clone1 = RRRLateLoadPrefabs.Clone("Greydwarf_elite_ragdoll", clone.name + "_ragdoll", true, false);
             ((EffectList.EffectData)((EffectList)component.m_deathEffects).m_effectPrefabs[1]).m_prefab = (GameObject)clone1;
-            
+
+            //Rigidbody
+            Rigidbody rigidbody = clone.GetComponent<Rigidbody>();
+            rigidbody.mass = 45;
+
             Groot.DesignAppearance(clone);
   
         }
@@ -108,9 +126,9 @@ namespace Friendlies.Mobs
             shared.m_attack.m_projectileBursts = (int)1;
             shared.m_attack.m_projectileAccuracy = (float)1.0;
             shared.m_attack.m_burstInterval = (float)0.5;
-            shared.m_aiAttackInterval = (float)7.0;
+            shared.m_aiAttackInterval = (float)7.5;
             shared.m_aiAttackRange = (float)25.0;
-            shared.m_aiAttackRangeMin = (float)1.0;
+            shared.m_aiAttackRangeMin = (float)4.0;
             shared.m_startEffect = ObjectDB.instance.GetItemPrefab("gd_king_shoot").GetComponent<ItemDrop>().m_itemData.m_shared.m_startEffect;
             return gameObject;
         }
@@ -122,10 +140,11 @@ namespace Friendlies.Mobs
             shared.m_damages.m_blunt = Groot.MeleeDmgBlunt;
             shared.m_damages.m_chop = 0;
             shared.m_damages.m_pickaxe = 0;
-            shared.m_attack.m_attackRange = 2.5f;
+            shared.m_attack.m_attackRange = 2.7f;
             shared.m_attack.m_attackAnimation = "punch";
-            shared.m_aiAttackInterval = 3.0f;
+            shared.m_aiAttackInterval = 2.5f;
             shared.m_aiAttackRange = 2.5f;
+            shared.m_aiAttackRangeMin = 0;
 
             return gameObject;
         }
