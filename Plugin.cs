@@ -10,14 +10,15 @@ using System.Runtime.CompilerServices;
 
 namespace Friendlies
 {
-    [BepInPlugin("som.Friendlies", "Friendlies", "0.0.2")]
+    [BepInPlugin("som.Friendlies", "Friendlies", "0.0.5")]
     [BepInDependency(RRRPluginGuids.RRRCore)]
+    [BepInDependency(RRRPluginGuids.RRRNpcs)]
 
     public class Plugin : BaseUnityPlugin
     {
         private const string GUID = "som.Friendlies";
         private const string NAME = "Friendlies";
-        private const string VERSION = "0.0.2";
+        private const string VERSION = "0.0.5";
         internal static ManualLogSource log;
 
         private void Awake()
@@ -32,7 +33,8 @@ namespace Friendlies
                 return;
             LoadWeapons();
             Groot.LateLoadGroot(RRRLateLoadPrefabs.Clone(Groot.OriginalName, MobNames.Groot.ToString(), true, false));
-            Ashe.LateLoadAshe(RRRLateLoadPrefabs.Clone(Ashe.OriginalName, MobNames.Ashe.ToString(), true, false));
+            Trundle.LateLoadTrundle(RRRLateLoadPrefabs.Clone(Trundle.OriginalName, MobNames.Trundle.ToString(), true, false));
+            //Ashe.LateLoadAshe(RRRLateLoadPrefabs.Clone(Ashe.OriginalName, MobNames.Ashe.ToString(), true, false));
             MiniSkelly.LateLoadMiniSkelly(RRRLateLoadPrefabs.Clone(MiniSkelly.OriginalName, MobNames.MiniSkelly.ToString(), true, false));
             MiniSquito.LateLoadMiniSquito(RRRLateLoadPrefabs.Clone(MiniSquito.OriginalName, MobNames.MiniSquito.ToString(), true, false));
             Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());

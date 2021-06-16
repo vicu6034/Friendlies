@@ -6,6 +6,7 @@
         Ashe,
         Dwarf,
         MiniSkelly,
-        MiniSquito
+        MiniSquito,
+        Trundle
     }
 }

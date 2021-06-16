@@ -12,7 +12,7 @@ namespace Friendlies.Mobs
 
         private static float ShootDmgPierce = Balance.Enemy.BasicDamage(3) * 0.75f;
         private static float ShootDmgPoison = Balance.Enemy.BasicDamage(3) * 0.25f;
-        private static float MeleeDmgBlunt = Balance.Enemy.BasicDamage(3) * 1.25f;
+        private static float MeleeDmgBlunt = Balance.Enemy.BasicDamage(3) * 1.1f;
 
         internal static void LateLoadGroot(GameObject clone)
         {

@@ -107,9 +107,10 @@
   <ItemGroup>
     <Compile Include="Attacks\Fireball.cs" />
     <Compile Include="Attacks\FrostBreath.cs" />
-	<Compile Include="Attacks\LightningShock.cs" />
+    <Compile Include="Attacks\LightningShock.cs" />
     <Compile Include="Mobs\MiniSkelly.cs" />
     <Compile Include="Mobs\MiniSquito.cs" />
+    <Compile Include="Mobs\Trundle.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="MobNames.cs" />
     <Compile Include="Attacks\AsheBow.cs" />
