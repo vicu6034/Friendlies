@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using RRRCore;
 using UnityEngine;
 using Object = System.Object;
@@ -16,7 +17,6 @@ namespace Friendlies.Mobs
         internal static void LateLoadTrundle(GameObject clone)
         {
             Character component = (Character)clone.GetComponent<Character>();
-
             component.m_name = "Trundle";
             Character character1 = component;
             character1.m_health = 400;
@@ -44,15 +44,31 @@ namespace Friendlies.Mobs
             humanoid.m_bossEvent = null;
             humanoid.m_defeatSetGlobalKey = null;
 
+            CapsuleCollider capsule = new CapsuleCollider();
+            GameObject log = ZNetScene.instance.GetPrefab("FirTree_log");
+            capsule = log.GetComponentInChildren<CapsuleCollider>();
+
             //Item Tint
+            Color clubColor = new Color(0f, 0.42f, 0.95f);
             HashSet<GameObject> source = new HashSet<GameObject>();
             source.UnionWith(humanoid.m_defaultItems);
-            foreach (Renderer renderer in source.Where<GameObject>((Func<GameObject, bool>)(i => i.IsNotNull())).SelectMany<GameObject, Renderer>((Func<GameObject, IEnumerable<Renderer>>)(i => (IEnumerable<Renderer>)i.GetComponentsInChildren<Renderer>(true))))
+            foreach (Renderer renderer in source.Where<GameObject>(i => i.IsNotNull()).SelectMany(i => i.GetComponentsInChildren<Renderer>(true)))
             {
                 foreach (Material material in renderer.materials)
-                    material.color = Color.blue;
+                    material.SetColor("_Color", clubColor);
             }
-
+            foreach (Transform transform in source.Where<GameObject>(i => i.IsNotNull()).SelectMany(i => i.GetComponentsInChildren<Transform>(true)))
+            {
+                if (transform.name == "collider")
+                {
+                    transform.gameObject.AddComponent<CapsuleCollider>();
+                    CapsuleCollider toChange = transform.GetComponent<CapsuleCollider>();
+                    toChange.center = capsule.center;
+                    toChange.height = capsule.height;
+                    toChange.radius = capsule.radius;
+                    toChange.direction = capsule.direction;
+                }
+            }
             //VisEquipFix
             VisEquipment vis = component.GetComponent<VisEquipment>();
             foreach (Transform componentsInChild in component.GetComponentsInChildren<Transform>())
@@ -63,7 +79,7 @@ namespace Friendlies.Mobs
                     vis.m_rightHand = componentsInChild;
                 }
             }
-
+            
             //MonsterAI
             MonsterAI monsterAI = clone.GetComponent<MonsterAI>();
             monsterAI.m_viewRange = 25f;
@@ -112,6 +128,19 @@ namespace Friendlies.Mobs
             characterDrop.m_drops.Add(drop);
             */
 
+            
+            /*
+            HashSet<GameObject> sourceH = new HashSet<GameObject>();
+            sourceH.UnionWith(hairs);
+            foreach (SkinnedMeshRenderer rendererS in sourceH.Where<GameObject>((Func<GameObject, bool>)(i => i.IsNotNull())).SelectMany<GameObject, SkinnedMeshRenderer>((Func<GameObject, IEnumerable<SkinnedMeshRenderer>>)(i => (IEnumerable<SkinnedMeshRenderer>)i.GetComponentsInChildren<SkinnedMeshRenderer>(true))))
+            {
+                foreach (Material materialM in rendererS.materials)
+                {
+                    materialM.color = Color.black;
+                }
+            }
+            */
+            
             Trundle.DesignAppearance(clone);
         }
 
@@ -132,7 +161,11 @@ namespace Friendlies.Mobs
             shared.m_aiTargetType = ItemDrop.ItemData.AiTarget.Enemy;
             shared.m_attackForce = 60f;
             shared.m_damages.m_blunt = 25f;
-
+            shared.m_attack.m_speedFactor = 0;
+            shared.m_attack.m_speedFactorRotation = 1;
+            shared.m_attack.m_lowerDamagePerHit = false;
+            shared.m_attack.m_hitThroughWalls = true;
+            shared.m_attack.m_hitPointtype = Attack.HitPointType.Closest;
             shared.m_attack.m_attackAnimation = "swing_logh";
             shared.m_attack.m_attackType = Attack.AttackType.Horizontal;
             shared.m_attack.m_attackRandomAnimations = 0;
@@ -148,7 +181,7 @@ namespace Friendlies.Mobs
             {
                 componentsInChild.localScale = new Vector3(2.2f, 2.5f, 2.2f);
                 componentsInChild.localRotation = new Quaternion(-90, 0f, -90, 0);
-                componentsInChild.localPosition = new Vector3(0f, -0.055f, -0.08f);
+                componentsInChild.localPosition = new Vector3(0f, -0.05f, -0.08f);
             }
             return gameObject;
         }
@@ -169,6 +202,11 @@ namespace Friendlies.Mobs
             shared.m_attackForce = 60f;
             shared.m_damages.m_blunt = 25f;
             //shared.m_attack = RRRLateLoadPrefabs.Clone("troll_log_swing_v", MobNames.Trundle.ToString() + "_smack_v_util", true, true).GetComponent<Attack>();
+            shared.m_attack.m_speedFactor = 0;
+            shared.m_attack.m_speedFactorRotation = 1;
+            shared.m_attack.m_lowerDamagePerHit = false;
+            shared.m_attack.m_hitThroughWalls = true;
+            shared.m_attack.m_hitPointtype = Attack.HitPointType.Closest;
             shared.m_attack.m_attackAnimation = "swing_logv";
             shared.m_attack.m_attackType = Attack.AttackType.Vertical;
             shared.m_attack.m_attackRandomAnimations = 0;
@@ -184,7 +222,7 @@ namespace Friendlies.Mobs
             {
                 componentsInChild.localScale = new Vector3(2.2f,2.5f,2.2f);
                 componentsInChild.localRotation = new Quaternion(-90, 0f, -90, 0);
-                componentsInChild.localPosition = new Vector3(0f, -0.055f, -0.08f);
+                componentsInChild.localPosition = new Vector3(0f, -0.05f, -0.08f);
             }
 
             return gameObject;
@@ -202,22 +240,39 @@ namespace Friendlies.Mobs
                     UnityEngine.Object.Destroy(componentsInChild);
                 }
             }
-
+            //8
             GameObject hair = RRRLateLoadPrefabs.Clone("Hair8", "newHair", true, true);
             Transform hairTransform = hair.GetComponent<Transform>();
-            hairTransform.localScale = new Vector3(5.2f, 5.2f, 5.5f);
-            hairTransform.localPosition = new Vector3(0, 47.65f, 0.55f);
+            hairTransform.localScale = new Vector3(5.7f, 6f, 5.7f);
+            hairTransform.localPosition = new Vector3(0, 46.1f, 0.5f);
+            //3
+            GameObject beard = RRRLateLoadPrefabs.Clone("Beard5", "newBeard", true, true);
+            Transform beardTransform = beard.GetComponent<Transform>();
+            beardTransform.localScale = new Vector3(5.8f, 6f, 5.8f);
+            beardTransform.localPosition = new Vector3(0, 45.65f, 0.32f);
 
-            foreach (Renderer renderer in hair.GetComponentsInChildren<Renderer>(true))
+            GameObject[] hairs = new GameObject[2]
             {
-                renderer.materials[0].color = Color.red;
+                hair,
+                beard
+            };
+            Color hairColor = new Color(0.74f, 0.26f, 0.43f);
+            foreach (Renderer rendererH in hairs.Where<GameObject>(i => i.IsNotNull()).SelectMany(i => i.GetComponentsInChildren<Renderer>(true)))
+            {
+                foreach (Material materialH in rendererH.materials)
+                {
+                    materialH.SetColor("_SkinColor", hairColor);
+                }
             }
 
             foreach (Transform componentsInChildT in clone.GetComponentsInChildren<Transform>())
             {
-                if (componentsInChildT.name == "R.Brow")
+                if (componentsInChildT.name == "Head")
                 {
                     UnityEngine.Object.Instantiate(hair, componentsInChildT, true);
+                } else if (componentsInChildT.name == "Jaw")
+                {
+                    UnityEngine.Object.Instantiate(beard, componentsInChildT, true);
                 }
             }
         }

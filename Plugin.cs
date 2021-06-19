@@ -5,9 +5,9 @@ using RRRCore;
 using Friendlies.Attacks;
 using Friendlies.Mobs;
 using UnityEngine;
+using UnityEditor;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-
 namespace Friendlies
 {
     [BepInPlugin("som.Friendlies", "Friendlies", "0.0.5")]
@@ -62,6 +62,7 @@ namespace Friendlies
               ref HitData hit)
             {
                 var name = __instance.m_name;
+                if (name == null) return;
                 if (name == "Necromancer")
                 {
                     System.Random rand = new System.Random();
@@ -99,7 +100,7 @@ namespace Friendlies
                         gameObject.GetComponent<Tameable>().Tame();
                     }
                 }
-                else return;
+                return;
             }
         }
 
@@ -130,7 +131,7 @@ namespace Friendlies
                     gameObject2.GetComponent<Character>().SetLevel(1);
                     gameObject2.GetComponent<Tameable>().Tame();
                 } 
-                else return;
+                return;
             }
         }
     }
